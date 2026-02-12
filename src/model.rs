@@ -1,3 +1,4 @@
+use serde::{Deserialize};
 use tiberius::Query;
 
 #[derive(Clone)]
@@ -26,4 +27,9 @@ impl SqlParam {
             // SqlParam::Null => query.bind(Option::<&str>::None),
         };
     }
+}
+
+#[derive(Deserialize, Debug)]
+pub struct TokenResponse {
+    pub access_token: String
 }
