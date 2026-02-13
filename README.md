@@ -16,3 +16,23 @@ ocr
    └─ status_code.rs
 
 ```
+```
+ocr
+├─ api_sample.ps1
+├─ Cargo.lock
+├─ Cargo.toml
+├─ README.md
+└─ src
+   ├─ constant.rs
+   ├─ main.rs
+   ├─ model.rs
+   ├─ ocr
+   │  ├─ azure_service.rs
+   │  ├─ copilot.rs
+   │  ├─ deepseek_ocr.rs
+   │  └─ mod.rs
+   ├─ router.rs
+   ├─ state.rs
+   └─ status_code.rs
+
+```
