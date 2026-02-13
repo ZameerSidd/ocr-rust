@@ -34,3 +34,5 @@ impl<T> ApiResponse<T> {
         }
     }
 }
+
+// const COUNTER_NAMES: &[&str] = &["HDFC ", "green", "blue"];

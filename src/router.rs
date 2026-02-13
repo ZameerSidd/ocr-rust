@@ -19,7 +19,7 @@ pub async fn get_router() -> Router {
     let document_key = env::var("AZURE_DOCUMENT_INTELLIGENCE_KEY").expect("AZURE_DOCUMENT_INTELLIGENCE_KEY missing");
 
     let token_data: TokenResponse;
-    if tenant_id == ""{    
+    // if tenant_id == ""{    
         // 2. Microsoft OAuth 2.0 Token Request
         let url = format!("https://login.microsoftonline.com/{}/oauth2/v2.0/token", tenant_id);
 
@@ -40,7 +40,7 @@ pub async fn get_router() -> Router {
             .expect("CRITICAL: Failed to contact Microsoft Identity platform");
         
         let text = response.text().await.expect("Failed to read body");
-        // println!("Response Body: {}", text); 
+        println!("Response Body: {}", text); 
 
         // let token_data: TokenResponse = response
         //     .json()
@@ -49,9 +49,9 @@ pub async fn get_router() -> Router {
 
         token_data = serde_json::from_str(&text)
         .expect("CRITICAL: Failed to parse token response");
-    }else{
-        token_data = TokenResponse { access_token: "no id".to_string() };
-    }
+    // }else{
+    //     token_data = TokenResponse { access_token: "no id".to_string() };
+    // }
 
     // 3. Database Pool Setup
     let conn_str = env::var("ATM_SYNC_DATABASE_CONNECTION_STRING")
